@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Living Lab Off-Grid | Hábitat Residencial Bioclimático y Autónomo</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #F8F9FA;
+            --bg-card: #FFFFFF;
+            --text-main: #1E232A;
+            --text-muted: #5A626C;
+            --accent-green: #2D6A4F;
+            --accent-blue: #3A86FF;
+            --accent-purple: #6C5CE7;
+            --border-color: #E2E8F0;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--accent-green);
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-green);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 4rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #E8F5E9;
+            color: var(--accent-green);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-img-container {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .hero-img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* SECTION BASE */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        /* METRICS GRID */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .metric-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* CONTENT CARDS (2 COLUMNS) */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .tech-grid.reverse {
+            direction: rtl;
+        }
+
+        .tech-grid.reverse .tech-content {
+            direction: ltr;
+        }
+
+        .tech-content {
+            direction: ltr;
+        }
+
+        .tech-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .tech-content p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .tech-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .tech-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* FULL WIDTH BANNER */
+        .full-banner {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 4rem;
+        }
+
+        .full-banner img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        /* OPEN SOURCE SECTION */
+        .open-source-box {
+            background: var(--text-main);
+            color: #FFFFFF;
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .open-source-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .open-source-box p {
+            color: #A0AEC0;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-green);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .tech-grid, .tech-grid.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="logo">LIVING LAB OFF-GRID</div>
+        <nav>
+            <a href="#arquitectura">Arquitectura</a>
+            <a href="#energia">Energía</a>
+            <a href="#agua">Recirculación de Agua</a>
+            <a href="#saneamiento">Saneamiento</a>
+            <a href="#opensource">Open Source</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <span class="badge">Bien Público Global • Prototipe de 190 m²</span>
+        <h1>Hábitat Residencial Bioclimático, Autónomo y Carbono Negativo</h1>
+        <p>Un laboratorio vivo diseñado para democratizar la autosuficiencia hídrica, energética y de saneamiento en el Sur Global mediante diseño modular e innovación pasiva.</p>
+
+        <!-- IMAGEN GENERAL (CASA COMPLETA CON SISTEMAS) -->
+        <div class="hero-img-container">
+            <img src="imagengeneral.jpg" alt="Living Lab Off-Grid - Vista General del Prototipo Residencial">
+        </div>
+    </div>
+
+    <!-- METRICAS DE IMPACTO -->
+    <section>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-number">$4,600 USD</div>
+                <div class="metric-label">Ahorro anual estimado por hogar en servicios públicos</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">100%</div>
+                <div class="metric-label">Recirculación de Aguas Grises (Red Morada)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">4.8 MWh</div>
+                <div class="metric-label">Generación Solar Fotovoltaica Integrada (BIPV) / año</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">0 COP</div>
+                <div class="metric-label">Costo operativo en climatización pasiva y geotermia</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANO Y ARQUITECTURA -->
+    <section id="arquitectura">
+        <h2 class="section-title">Arquitectura y Zonificación Bioclimática</h2>
+        <p class="section-subtitle">Diseño optimizado de 190 m² estructurado para favorecer la ventilación cruzada y el confort térmico pasivo.</p>
+        
+        <div class="tech-grid">
+            <div class="tech-content">
+                <h3>Distribución Espacial en AutoCAD</h3>
+                <p>Móduación estructurada con patio interior central, aleros bioclimáticos calculados según el ángulo solar y separación lógica entre zonas secas, hidráulicas y de saneamiento exterior.</p>
+                <p><strong>Líder del Proyecto:</strong> Arq. Ana María Sánchez Casilimas.</p>
+            </div>
+            <div class="tech-image">
+                <img src="plano.jpg" alt="Plano Arquitectónico 2D AutoCAD Living Lab Off-Grid">
+            </div>
+        </div>
+
+        <div class="tech-grid reverse">
+            <div class="tech-content">
+                <h3>Volumetría e Iluminación Natural</h3>
+                <p>Integración fluida entre sala, comedor y cocina con vista al patio interior. Aprovechamiento de luz natural mediante tubos solares (Solatube) y ventanales de doble vidrio hermético (DVH).</p>
+            </div>
+            <div class="tech-image">
+                <img src="areassociales.jpg" alt="Interior Zonas Sociales y Patio Interior">
+            </div>
+        </div>
+
+        <div class="full-banner">
+            <h3>Perspectiva Volumétrica Aérea</h3>
+            <p>Vista superior mostrando la integración de la cubierta BIPV, aleros y espacios de parqueadero autosostenible.</p>
+            <img src="imagen_desde_arriba.jpg" alt="Vista Aérea del Prototipo Residencial">
+        </div>
+    </section>
+
+    <!-- ENERGÍA Y CLIMATIZACIÓN PASIVA -->
+    <section id="energia">
+        <h2 class="section-title">Energía Fotovoltaica (BIPV) y Geotermia</h2>
+        <p class="section-subtitle">Matriz energética 100% independiente con tejas solares impermeables y climatización sin consumo de red.</p>
+
+        <div class="tech-grid">
+            <div class="tech-content">
+                <h3>Tejas Fotovoltaicas Integradas (BIPV)</h3>
+                <p>Las tejas actúan simultáneamente como impermeabilización de la cubierta y generadores de energía con inclinación de 10° a 15°. Cuentan con canaleta integrada para recolección de agua lluvia.</p>
+            </div>
+            <div class="tech-image">
+                <img src="tejasfotovoltaicasyrecoleccionag.jpg" alt="Tejas Fotovoltaicas BIPV">
+            </div>
+        </div>
+
+        <div class="tech-grid reverse">
+            <div class="tech-content">
+                <h3>Cuarto Técnico & Telemetría IoT</h3>
+                <p>Equipado con un inversor híbrido de 5 kW, banco de baterías de litio (LiFePO4) elevadas a 0.30 m sobre NPT y sensorización de bajo consumo en tiempo real mediante microcontroladores ESP32.</p>
+            </div>
+            <div class="tech-image">
+                <img src="energia_solar.jpg" alt="Cuarto Técnico con Inversor y Baterías de Litio">
+            </div>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-content">
+                <h3>Climatización Pasiva por Pozo Canadiense</h3>
+                <p>Intercambiador de calor geotérmico subterráneo instalado a -1.80 m de profundidad que inyecta aire fresco a temperatura constante (~18°C) eliminando la necesidad de aire acondicionado.</p>
+            </div>
+            <div class="tech-image">
+                <img src="pozo_canadience.jpg" alt="Esquema del Pozo Canadiense Geotérmico">
+            </div>
+        </div>
+    </section>
+
+    <!-- CIRCUITO CERRADO DE AGUA -->
+    <section id="agua">
+        <h2 class="section-title">Gestión Hídrica de Circuito Cerrado</h2>
+        <p class="section-subtitle">Potabilización de agua lluvia y tratamiento en línea de aguas grises para reutilización inmediata.</p>
+
+        <div class="tech-grid">
+            <div class="tech-content">
+                <h3>Captación Pluvial y Filtración de Hoja</h3>
+                <p>Recorrido del agua lluvia desde la cubierta BIPV mediante canaletas perimetrales con malla desnatadora y filtro First-Flush antes del almacenamiento en tanque de 1,000 Litros.</p>
+            </div>
+            <div class="tech-image">
+                <img src="Sistema captacion agguas luvias.jpg" alt="Detalle del Sistema de Captación de Agua Lluvia">
+            </div>
+        </div>
+
+        <div class="tech-grid reverse">
+            <div class="tech-content">
+                <h3>Módulo de Desinfección y Ultrafiltración</h3>
+                <p>Tren de purificación compuesto por filtro de sedimentos, carbón activado, membrana de ultrafiltración (0.02 µm) y desinfección por lámpara UV (254 nm) alimentado por micro-bomba.</p>
+            </div>
+            <div class="tech-image">
+                <img src="desinfeccion_aguas_grises.jpg" alt="Módulo de Desinfección UV e Inline Filtration">
+            </div>
+        </div>
+
+        <div class="tech-grid">
+            <div class="tech-content">
+                <h3>Ciclo de Recirculación "Red Morada"</h3>
+                <p>Corte esquemático mostrando cómo el agua gris usada en el lavamanos es conducida al cuarto técnico para su desinfección y regresa presurizada a la cisterna del sanitario.</p>
+            </div>
+            <div class="tech-image">
+                <img src="resirculacionaguasgrises.jpg" alt="Corte Esquemático de Recirculación de Agua Gris a Sanitario">
+            </div>
+        </div>
+    </section>
+
+    <!-- SANEAMIENTO Y BIOGÁS -->
+    <section id="saneamiento">
+        <h2 class="section-title">Saneamiento Ecológico y Biofertilización</h2>
+        <p class="section-subtitle">Transformación de residuos orgánicos en energía para cocción e insumos agrícolas sin impacto de olores.</p>
+
+        <div class="tech-grid">
+            <div class="tech-content">
+                <h3>Biodigestor Anaeróbico Enterrado (1,200L)</h3>
+                <p>Tratamiento anaeróbico de aguas negras que genera biogás purificado mediante tren de desulfurización para suministro de la estufa de cocina.</p>
+            </div>
+            <div class="tech-image">
+                <img src="biodigestor.jpg" alt="Instalación de Biodigestor Anaeróbico Bajo Tierra">
+            </div>
+        </div>
+
+        <div class="tech-grid reverse">
+            <div class="tech-content">
+                <h3>Vermicompostero y Biofiltro Exterior</h3>
+                <p>Modulo tripartito de vermicompostaje con lombriz roja californiana y lecho de infiltración para pulimiento del efluente sin generar contaminación.</p>
+            </div>
+            <div class="tech-image">
+                <img src="jardinycompostaje.jpg" alt="Módulo de Vermicompostaje y Biofiltro de Jardín">
+            </div>
+        </div>
+    </section>
+
+    <!-- OPEN SOURCE HUB -->
+    <section id="opensource">
+        <div class="open-source-box">
+            <h2>Bien Público Global & Documentación Abierta</h2>
+            <p>Todos los planos arquitectónicos en AutoCAD/BIM, especificaciones técnicas y esquemas de automatización IoT están disponibles bajo licencias libres para su libre replicación en el Sur Global.</p>
+            <a href="https://github.com/pipeyemprende-proyectos/living-lab-offgrid" class="btn" target="_blank">Explorar Repositorio en GitHub</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Living Lab Off-Grid • Proyecto desarrollado para convocatorias de sostenibilidad e innovación ambiental.</p>
+        <p>Pereira, Risaralda, Colombia.</p>
+    </footer>
+
+</body>
+</html>
